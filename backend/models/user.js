@@ -48,7 +48,7 @@ function validateUser(user) {
         name: Joi.string().min(3).max(50).required(),
         username: Joi.string().alphanum().min(3).max(30).required(),
         email: Joi.string().min(5).max(255).required().email(),
-        password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/).required(),
+        password: Joi.string().required(),
         repeat_password: Joi.ref("password"),
     });
     return Schema.validate(user);
@@ -58,7 +58,7 @@ function validateUserLogin(user) {
     const Schema = Joi.object({
         email: Joi.string().min(5).max(255).email(),
         username: Joi.string().alphanum().min(3).max(30),
-        password: Joi.string().pattern(/^[a-zA-Z0-9]{3,30}$/).required(),
+        password: Joi.string().required(),
     }).or('email', 'username');
     return Schema.validate(user);
 }
