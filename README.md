@@ -15,7 +15,7 @@ npm i
 ```
 - Start Dev Server
 ```
-npm dev
+npm run dev
 ```
 
 - OR Start Production Server
